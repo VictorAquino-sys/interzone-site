@@ -1,0 +1,15 @@
+{
+    "nav": {
+      "home": "Inicio",
+      "about": "Acerca de"
+    },
+    "title": "InterZone Technologies LLC",
+    "subtitle": "Impulsando comunidades a través de la tecnología",
+    "welcome": "¡Bienvenido! Creamos aplicaciones móviles y web innovadoras diseñadas para conectar, inspirar y apoyar a nuestras comunidades locales.",
+    "flagship": "Nuestro producto principal, la aplicación InterZone, está disponible para iOS y Android.",
+    "comingSoon": "Próximamente",
+    "leadDeveloper": "Desarrollador Principal",
+    "expertise": "Especialidad",
+    "expertiseList": "Ingeniería de Software, Desarrollo Web y Móvil, Infraestructura en la Nube"
+  }
+  
