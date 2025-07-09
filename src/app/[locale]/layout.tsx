@@ -3,7 +3,8 @@ import { notFound } from 'next/navigation';
 import Navbar from '../components/Navbar';
 
 export default async function LocaleLayout({
-  children,
+  children, 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   params,
 }: {
   children: React.ReactNode;
