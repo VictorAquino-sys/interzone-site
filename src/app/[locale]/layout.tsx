@@ -2,18 +2,24 @@ import { NextIntlClientProvider } from 'next-intl';
 import { notFound } from 'next/navigation';
 import Navbar from '../components/Navbar';
 
-export default async function LocaleLayout({ children, params: { locale } }: any) {
+// Correct typing for props
+interface LocaleLayoutProps {
+  children: React.ReactNode;
+  params: { locale: string };
+}
+
+export default async function LocaleLayout({ children, params }: LocaleLayoutProps) {
   let messages;
   try {
-    messages = (await import(`../../messages/${locale}.json`)).default;
-  } catch (error) {
+    messages = (await import(`../../messages/${params.locale}.json`)).default;
+  } catch {
     notFound();
   }
 
   return (
-    <html lang={locale}>
+    <html lang={params.locale}>
       <body>
-        <NextIntlClientProvider locale={locale} messages={messages}>
+        <NextIntlClientProvider locale={params.locale} messages={messages}>
           <Navbar />
           {children}
         </NextIntlClientProvider>
