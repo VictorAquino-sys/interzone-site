@@ -9,9 +9,9 @@ export function generateStaticParams() {
 export default async function HomePage({
   params,
 }: {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
-  const { locale } = params;
+  const { locale } = await params;
 
   setRequestLocale(locale);
 
@@ -22,8 +22,8 @@ export default async function HomePage({
       <h1 className="text-5xl font-extrabold text-indigo-700 mb-2">{t('title')}</h1>
       <h2 className="text-xl font-semibold text-indigo-300 mb-8">{t('subtitle')}</h2>
 
-      <p className="max-w-3xl text-gray-700 mb-4">{t('welcome')}</p>
-      <p className="max-w-3xl text-gray-700 mb-12">{t('flagship')}</p>
+      <p className="text-lg text-gray-700 max-w-3xl text-center mb-4">{t('welcome')}</p>
+      <p className="text-lg text-gray-700 max-w-3xl text-center mb-4">{t('flagship')}</p>
 
       <h3 className="text-lg font-semibold text-indigo-300 mb-1">{t('comingSoon')}</h3>
 
