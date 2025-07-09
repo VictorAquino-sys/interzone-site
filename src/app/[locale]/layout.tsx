@@ -2,13 +2,13 @@ import { NextIntlClientProvider } from 'next-intl';
 import { notFound } from 'next/navigation';
 import Navbar from '../components/Navbar';
 
-// Correct typing for props
-interface LocaleLayoutProps {
+export default async function LocaleLayout({
+  children,
+  params,
+}: {
   children: React.ReactNode;
   params: { locale: string };
-}
-
-export default async function LocaleLayout({ children, params }: LocaleLayoutProps) {
+}) {
   let messages;
   try {
     messages = (await import(`../../messages/${params.locale}.json`)).default;
