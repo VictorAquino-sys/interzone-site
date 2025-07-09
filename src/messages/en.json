@@ -1,15 +1,17 @@
 {
+    "HomePage": {
+      "title": "InterZone Technologies LLC",
+      "subtitle": "Empowering Communities Through Technology",
+      "welcome": "Welcome! We build innovative mobile and web applications designed to connect, inspire, and support our local communities.",
+      "flagship": "Our flagship product, the InterZone app, is available for iOS and Android.",
+      "comingSoon": "Coming Soon",
+      "leadDeveloper": "Lead Developer",
+      "expertise": "Expertise",
+      "expertiseList": "Software Engineering, Mobile & Web Development, Cloud Infrastructure"
+    },
     "nav": {
       "home": "Home",
       "about": "About"
-    },
-    "title": "InterZone Technologies LLC",
-    "subtitle": "Empowering Communities Through Technology",
-    "welcome": "Welcome! We build innovative mobile and web applications designed to connect, inspire, and support our local communities.",
-    "flagship": "Our flagship product, the InterZone app, is available for iOS and Android.",
-    "comingSoon": "Coming Soon",
-    "leadDeveloper": "Lead Developer",
-    "expertise": "Expertise",
-    "expertiseList": "Software Engineering, Mobile & Web Development, Cloud Infrastructure"
+    }
   }
   

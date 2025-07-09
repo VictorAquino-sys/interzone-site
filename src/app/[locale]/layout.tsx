@@ -1,32 +1,36 @@
-import { NextIntlClientProvider } from 'next-intl';
+import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { notFound } from 'next/navigation';
-import Navbar from '../components/Navbar';
+import { routing } from '@/i18n/routing';
+import { setRequestLocale } from 'next-intl/server';
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
 
 export default async function LocaleLayout({
-  children, 
-  params,
-}: {
-  children: React.ReactNode;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  params: any; // <-- TEMPORARY: use `any` until Next.js updates the types
-}) {
-  const { locale } = await Promise.resolve(params);
-
-  let messages;
-  try {
-    messages = (await import(`../../messages/${locale}.json`)).default;
-  } catch {
-    notFound();
+    children,
+    params,
+  }: {
+    children: React.ReactNode;
+    params: Promise<{ locale: string }>;
+  }) {
+    const { locale } = await params;
+  
+    if (!hasLocale(routing.locales, locale)) {
+      notFound();
+    }
+  
+    setRequestLocale(locale);
+  
+    const messages = (await import(`@/messages/${locale}.json`)).default;
+  
+    return (
+      <html lang={locale}>
+        <body>
+          <NextIntlClientProvider locale={locale} messages={messages}>
+            {children}
+          </NextIntlClientProvider>
+        </body>
+      </html>
+    );
   }
-
-  return (
-    <html lang={locale}>
-      <body>
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          <Navbar />
-          {children}
-        </NextIntlClientProvider>
-      </body>
-    </html>
-  );
-}

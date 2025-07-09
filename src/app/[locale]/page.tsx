@@ -1,32 +1,26 @@
-'use client';
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
+import { setRequestLocale } from 'next-intl/server';
+import { routing } from '@/i18n/routing';
 
-export default function HomePage() {
-  const t = useTranslations();
-
-  return (
-    <main className="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-8">
-      <h1 className="text-4xl md:text-6xl font-bold mb-4 text-center text-indigo-700">
-        {t('title')}
-      </h1>
-      <h2 className="text-xl md:text-2xl mb-6 text-center text-gray-700">
-        {t('subtitle')}
-      </h2>
-      <div className="bg-white rounded-2xl shadow-xl p-8 max-w-lg text-center">
-        <p className="text-lg mb-4">{t('welcome')}</p>
-        <p className="text-md mb-6 text-gray-500">{t('flagship')}</p>
-        <div className="flex gap-4 justify-center mb-4">
-          <a className="px-4 py-2 rounded bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition">
-            iOS App ({t('comingSoon')})
-          </a>
-          <a className="px-4 py-2 rounded bg-green-600 text-white font-semibold hover:bg-green-700 transition">
-            Android App ({t('comingSoon')})
-          </a>
-        </div>
-        <p className="text-sm text-gray-400">
-          Stay tuned! Full website experience launching soon.
-        </p>
-      </div>
-    </main>
-  );
+export function generateStaticParams() {
+    return routing.locales.map((locale) => ({ locale }));
 }
+
+export default async function HomePage({
+    params,
+  }: {
+    params: Promise<{ locale: string }>;
+}) {
+    // Since the whole function is async, Next.js handles the Promise wrapping
+    const { locale } = await params;
+  
+    setRequestLocale(locale);
+  
+    const t = await getTranslations('HomePage');
+  
+    return (
+      <main>
+        <h1>{t('title')}</h1>
+      </main>
+    );
+  }

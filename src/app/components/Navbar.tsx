@@ -1,6 +1,6 @@
-'use client';
+// 'use client';
 import Link from "next/link";
-import LocaleSwitcher from "./LocaleSwitcher";
+// import LocaleSwitcher from "./LocaleSwitcher";
 import { useTranslations, useLocale } from 'next-intl';
 
 export default function Navbar() {
@@ -13,7 +13,7 @@ export default function Navbar() {
         <Link href={`/${locale}/`} className="hover:text-indigo-700 transition">{t('home')}</Link>
         <Link href={`/${locale}/about`} className="hover:text-indigo-700 transition">{t('about')}</Link>
       </div>
-      <LocaleSwitcher />
+      {/* <LocaleSwitcher /> */}
     </nav>
   );
 }
