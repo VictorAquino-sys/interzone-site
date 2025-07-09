@@ -12,6 +12,15 @@
     "nav": {
       "home": "Inicio",
       "about": "Acerca de"
+    },
+    "AboutPage": {
+        "title": "Acerca de InterZone Technologies",
+        "description": "InterZone Technologies LLC fue fundada para empoderar comunidades a través de tecnología innovadora. Nos especializamos en construir aplicaciones web y móviles modernas y escalables, y nuestra aplicación principal InterZone conecta a las personas local y globalmente.",
+        "leadDeveloper": "Desarrollador Principal",
+        "expertise": "Especialidad",
+        "technologies": "Tecnologías",
+        "contact": "Contacto",
+        "closing": "Creemos que la tecnología puede unir a las personas. ¡Construyamos juntos el futuro de la comunidad!"
     }
   }
   
