@@ -4,10 +4,10 @@ import Navbar from '../components/Navbar';
 
 export default async function LocaleLayout({
   children, 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   params,
 }: {
   children: React.ReactNode;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   params: any; // <-- TEMPORARY: use `any` until Next.js updates the types
 }) {
   const { locale } = await Promise.resolve(params);
