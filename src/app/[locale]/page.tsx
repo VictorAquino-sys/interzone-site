@@ -21,11 +21,11 @@ export default async function HomePage({
     <main className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-8 text-center">
 
       {/* Logo */}
-      <img
-        src="/images/interzone_logo_1.png"
-        alt="InterZone Logo"
-        className="w-32 h-auto mb-6"
-      />
+        <img
+            src="/images/interzone_logo_1.png"
+            alt="InterZone Logo"
+            className="w-24 h-auto mb-6 mx-auto"
+        />
 
 
       <h1 className="text-5xl font-extrabold text-indigo-700 mb-2">{t('title')}</h1>
