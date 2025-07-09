@@ -11,17 +11,13 @@ export default function Navbar() {
       <div className="flex gap-8 text-lg font-semibold">
         <Link
           href="/"
-          className={`transition ${
-            pathname === "/" ? "text-indigo-700" : "text-gray-700 hover:text-indigo-700"
-          }`}
+          className="text-black hover:text-indigo-700 transition"
         >
           Home
         </Link>
         <Link
           href="/about"
-          className={`transition ${
-            pathname === "/about" ? "text-indigo-700" : "text-gray-700 hover:text-indigo-700"
-          }`}
+          className="text-black hover:text-indigo-700 transition"
         >
           About
         </Link>
