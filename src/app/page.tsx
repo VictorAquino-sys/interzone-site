@@ -10,7 +10,7 @@ export default function HomePage() {
           Empowering Communities Through Technology
         </h2>
         <div className="bg-white rounded-2xl shadow-xl p-8 max-w-lg text-center">
-          <p className="text-lg mb-4">
+          <p className="text-lg mb-4 text-gray-700">
             Welcome! We build innovative mobile and web applications designed to connect, inspire, and support our local communities.
           </p>
           <p className="text-md mb-6 text-gray-500">

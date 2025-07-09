@@ -14,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-gray-50">
+      <body className="bg-gray-50 pt-20"> {/* Add pt-20 for navbar space */}
         <Navbar />
         {children}
       </body>
