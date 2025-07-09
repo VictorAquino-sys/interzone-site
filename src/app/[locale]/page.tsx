@@ -22,7 +22,7 @@ export default async function HomePage({
 
       {/* Logo */}
       <img
-        src="/public/images/interzone_logo_1.png"
+        src="/images/interzone_logo_1.png"
         alt="InterZone Logo"
         className="w-32 h-auto mb-6"
       />
