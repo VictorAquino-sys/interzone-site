@@ -2,14 +2,13 @@ import { NextIntlClientProvider } from 'next-intl';
 import { notFound } from 'next/navigation';
 import Navbar from '../components/Navbar';
 
-// The new correct props type for async layouts in Next.js 15+
-type Props = {
+export default async function LocaleLayout({
+  children,
+  params,
+}: {
   children: React.ReactNode;
-  params: { locale: string } | Promise<{ locale: string }>;
-};
-
-export default async function LocaleLayout({ children, params }: Props) {
-  // Support params as promise OR object:
+  params: any; // <-- TEMPORARY: use `any` until Next.js updates the types
+}) {
   const { locale } = await Promise.resolve(params);
 
   let messages;
