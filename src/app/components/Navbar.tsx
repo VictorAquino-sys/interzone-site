@@ -23,15 +23,15 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="w-full bg-black fixed top-0 left-0 z-50 flex items-center justify-between py-1 px-3 sm:px-8 shadow-lg">
+    <nav className="w-full bg-black fixed top-0 left-0 z-50 flex items-center justify-between py-1 px-8 sm:px-8 shadow-lg">
       {/* Logo */}
       <div className="flex items-center gap-2">
         <Link href={`/${locale}/`}>
           <Image
             src="/images/interzone_white_glow.png"
             alt="InterZone Logo"
-            width={120}
-            height={48}
+            width={300}
+            height={120}
             priority
             className="transition-all duration-300 drop-shadow-[0_2px_18px_rgba(66,170,255,0.55)] hover:scale-105"
             style={{
