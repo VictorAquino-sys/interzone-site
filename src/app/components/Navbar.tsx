@@ -33,11 +33,11 @@ export default function Navbar() {
             width={300}
             height={120}
             priority
-            className="transition-all duration-300 drop-shadow-[0_2px_18px_rgba(66,170,255,0.55)] hover:scale-105"
+            className="transition-all duration-300 drop-shadow-[0_2px_18px_rgba(66,170,255,0.55)] hover:scale-105 hover:drop-shadow-[0_4px_32px_rgba(255,255,255,0.7)]"
             style={{
               objectFit: "contain",
-              marginTop: "-8px",
-              maxWidth: "120px"
+              marginTop: "-16px",
+              // maxWidth: "120px"
             }}
           />
         </Link>
@@ -53,17 +53,19 @@ export default function Navbar() {
       </button>
 
       {/* Navigation Links (Desktop) */}
-      <div className="hidden sm:flex items-center gap-8">
-        {navLinks.map((link) => (
-          <Link
-            key={link.href}
-            href={link.href}
-            className="text-white hover:text-yellow-300 transition text-base font-semibold"
-          >
-            {link.label}
-          </Link>
-        ))}
-        <LocaleSwitcher />
+      <div className="hidden sm:flex items-center gap-24 px-8">
+        <div className="flex gap-24 text-base font-semibold">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="text-white hover:text-yellow-300 transition text-base font-semibold"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </div>
+          <LocaleSwitcher />
       </div>
 
       {/* Mobile Drawer */}
