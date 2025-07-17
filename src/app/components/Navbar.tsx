@@ -12,10 +12,10 @@ export default function Navbar() {
       <div className="flex items-center gap-4">
         <Link href={`/${locale}/`}>
           <Image
-            src="/interzone_white_glow.png"
+            src="/images/interzone_white_glow.png"
             alt="InterZone Logo"
-            width={160}
-            height={50}
+            width={200}
+            height={80}
             priority
             style={{ objectFit: "contain" }}
           />
