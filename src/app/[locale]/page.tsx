@@ -36,13 +36,14 @@ export default async function HomePage({
         <source src="/videos/interzone_website.mp4" type="video/mp4" />
         Sorry, your browser does not support the video tag.
       </video>
-      {/* Dark Overlay */}
-      {/* <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50 z-10" /> */}
 
       {/* Content */}
+      <div className="absolute inset-0 bg-black/40 rounded-lg blur-[2px]" />
+
       <div className="relative z-20 flex flex-col items-center w-full pt-36 pb-16">
         {/* Accent: Services Line */}
-        <div className="mb-6 flex gap-3 text-base font-medium text-indigo-200 tracking-wider uppercase drop-shadow">
+        <div className="relative flex gap-3 text-base font-medium text-indigo-100 tracking-wider uppercase px-6 py-1"
+          style={{ textShadow: '0 2px 10px rgba(0,0,0,0.95)' }}>
           {t.raw('servicesLine').map((item: string, idx: number) => (
             <React.Fragment key={item}>
               {idx !== 0 && <span className="text-indigo-300">•</span>}
@@ -59,7 +60,8 @@ export default async function HomePage({
         </h1>
 
         {/* Subheadline */}
-        <p className="text-lg sm:text-xl text-white/90 max-w-2xl mx-auto mb-8 font-medium text-center drop-shadow">
+        <p className="relative text-lg sm:text-xl text-white max-w-2xl mx-auto mb-8 font-medium text-center px-5 py-2"
+          style={{ textShadow: '0 2px 10px rgba(0,0,0,1)' }}>
           {t('subheadline')}
         </p>
       </div>
