@@ -1,3 +1,4 @@
+// src/app/components/Navbar.tsx
 import Link from "next/link";
 import LocaleSwitcher from "./LocaleSwitcher";
 import { useTranslations, useLocale } from 'next-intl';
