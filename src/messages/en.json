@@ -1,15 +1,19 @@
 {
     "HomePage": {
-      "title": "InterZone Technologies LLC",
-      "subtitle": "Empowering Communities Through Technology",
-      "modernSubtitle": "Mobile • Web • Cybersecurity",
-      "watermark": "Empowering Communities Through Technology",
-      "welcome": "Welcome! We build innovative mobile and web applications designed to connect, inspire, and support our local communities.",
-      "flagship": "Our flagship product, the InterZone app, is available for iOS and Android."
+      "servicesLine": ["Mobile", "Web", "Cybersecurity"],
+      "headline1": "Build Fast.",
+      "headline2": "Secure Everything.",
+      "headline3": "Scale Without Limits.",
+      "subheadline": "Mobile, web, and cybersecurity expertise for teams that want to lead.",
+      "watermark": "Empowering Communities Through Technology"
     },
     "nav": {
       "home": "Home",
-      "about": "About"
+      "services": "Services",
+      "work": "Work",
+      "about": "About",
+      "blog": "Blog",
+      "contact": "Contact"
     },
     "AboutPage": {
         "title": "About InterZone Technologies",
