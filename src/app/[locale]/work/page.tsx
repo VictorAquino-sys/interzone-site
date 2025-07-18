@@ -149,15 +149,21 @@ export default function WorkPage() {
                     </div>
                 </div>
 
-                {testimonials.map(({ name, date, rating, title, text }, i) => (
-                <div key={`left-${i}`}>
-                <StarRating count={rating} />
-                <p className="mt-2 text-gray-600 text-sm italic">{date}</p>
-                <p className="mt-2 font-semibold text-indigo-700">{title}</p>
-                <p className="mt-1 text-gray-800 whitespace-pre-line">{text}</p>
-                <p className="mt-4 font-semibold text-gray-900">{name}</p>
+                <div className="max-w-xl text-center sm:text-left mt-1 hidden lg:block">
+                    <h3 className="text-3xl font-bold text-indigo-900 mb-4 text-center">
+                        {t("testimonials.title")}
+                    </h3>
+                    {testimonials.map(({ name, date, rating, title, text }, i) => (
+                    <div className="mt-6" key={`left-${i}`}>
+                        <StarRating count={rating} />
+                        <p className="mt-4 font-semibold text-gray-900">{name}</p>
+                        <p className="mt-2 mb-4 text-gray-600 text-sm italic">{date}</p>
+                        <p className="mt-2 font-semibold text-indigo-700">{title}</p>
+                        <p className="mt-1 tracking-tight text-gray-800 whitespace-pre-line">{text}</p>
+                    </div>
+                    ))}
                 </div>
-            ))}
+
             </section>
         </div>
 
@@ -170,10 +176,10 @@ export default function WorkPage() {
             {testimonials.map(({ name, date, rating, title, text }, i) => (
                 <div key={i} className="bg-white rounded-xl shadow-md p-6">
                 <StarRating count={rating} />
-                <p className="mt-2 text-gray-600 text-sm italic">{date}</p>
+                <p className="mt-4 font-semibold text-gray-900">{name}</p>
+                <p className="mt-2 mb-4 text-gray-600 text-sm italic">{date}</p>
                 <p className="mt-2 font-semibold text-lg text-indigo-800">{title}</p>
                 <p className="mt-1 text-gray-700 whitespace-pre-line">{text}</p>
-                <p className="mt-4 font-semibold text-gray-900">{name}</p>
                 </div>
             ))}
             </div>
