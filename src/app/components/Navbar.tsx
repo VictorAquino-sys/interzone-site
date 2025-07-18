@@ -3,6 +3,7 @@
 
 import Link from "next/link";
 import LocaleSwitcher from "./LocaleSwitcher";
+import { usePathname } from 'next/navigation';
 import { useTranslations, useLocale } from "next-intl";
 import Image from "next/image";
 import { useState } from "react";
@@ -25,6 +26,7 @@ export default function Navbar() {
   const tHome = useTranslations("HomePage");
   const locale = useLocale();
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
   const [servicesOpen, setServicesOpen] = useState(false);
 
   // Main nav links excluding Services (since it's special)
@@ -131,15 +133,22 @@ export default function Navbar() {
 
       {/* Navigation Links (Desktop) */}
         <div className="flex gap-24 text-base font-semibold">
-          {navLinks.map((link) => (
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href || pathname?.startsWith(link.href + '/');
+            return (
             <Link
               key={link.href}
               href={link.href}
-              className="text-white hover:text-yellow-300 transition text-base font-semibold"
+              className={`transition text-base font-semibold ${
+                isActive
+                  ? 'text-yellow-400 border-b-2 border-yellow-400'
+                  : 'text-white hover:text-yellow-300'
+              }`}
             >
               {link.label}
             </Link>
-          ))}
+          );
+          })}
         </div>
 
         <LocaleSwitcher />
