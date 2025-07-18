@@ -26,3 +26,25 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.underline-animate {
+  position: relative;
+}
+
+.underline-animate::after {
+  content: "";
+  position: absolute;
+  bottom: -2px; /* Slightly below the text */
+  left: 0;
+  height: 2px;
+  width: 0;
+  background-color: #facc15; /* Tailwind yellow-400 */
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: width 0.3s ease;
+}
+
+.underline-animate:hover::after {
+  width: 100%;
+  transform: scaleX(1); 
+}

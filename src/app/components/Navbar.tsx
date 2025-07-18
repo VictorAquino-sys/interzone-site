@@ -7,6 +7,18 @@ import { useTranslations, useLocale } from "next-intl";
 import Image from "next/image";
 import { useState } from "react";
 import { Menu, X, ChevronDown, ChevronUp } from "lucide-react";
+import {
+  Smartphone,
+  Monitor,
+  ShieldCheck,
+  Cloud,
+  Layout,
+  MessageCircle,
+  Cpu,
+  BarChart2,
+  LifeBuoy,
+  BookOpen,
+} from "lucide-react";
 
 export default function Navbar() {
   const tNav = useTranslations("nav");
@@ -25,9 +37,16 @@ export default function Navbar() {
 
   // Services submenu items
   const services = [
-    { href: `/${locale}/services/mobile`, label: tHome("servicesMobile") },
-    { href: `/${locale}/services/web`, label: tHome("servicesWeb") },
-    { href: `/${locale}/services/cybersecurity`, label: tHome("servicesCybersecurity") },
+    { href: `/${locale}/services/mobile`, label: tHome("servicesMobile"), Icon: Smartphone },
+    { href: `/${locale}/services/web`, label: tHome("servicesWeb"), Icon: Monitor },
+    { href: `/${locale}/services/cybersecurity`, label: tHome("servicesCybersecurity"), Icon: ShieldCheck },
+    { href: `/${locale}/services/cloud`, label: tHome("servicesCloud"), Icon: Cloud },
+    { href: `/${locale}/services/uiux`, label: tHome("servicesUIUX"), Icon: Layout },
+    { href: `/${locale}/services/consulting`, label: tHome("servicesConsulting"), Icon: MessageCircle },
+    { href: `/${locale}/services/devops`, label: tHome("servicesDevOps"), Icon: Cpu },
+    { href: `/${locale}/services/data-ai`, label: tHome("servicesDataAI"), Icon: BarChart2 },
+    { href: `/${locale}/services/support`, label: tHome("servicesSupport"), Icon: LifeBuoy },
+    { href: `/${locale}/services/training`, label: tHome("servicesTraining"), Icon: BookOpen },
   ];
 
   return (
@@ -74,27 +93,35 @@ export default function Navbar() {
         {/* Dropdown menu - visible on hover of button or menu */}
         <div
           className="
-            absolute left-0 mt-2 w-auto min-w-[140px] max-w-[220px]
-            bg-white rounded-md shadow-lg
+            absolute left-0 mt-2
+            w-auto min-w-[160px] max-w-[240px]
+            bg-white rounded-lg
+            shadow-lg shadow-black/20
             opacity-0 invisible
             group-hover:opacity-100 group-hover:visible
-            transition-opacity duration-200
+            transition-all duration-300 ease-in-out
             z-50
           "
         >
-          <ul className="text-black py-1">
-            {services.map((service) => (
+          <ul className="text-black py-2">
+            {services.map(({ href, label, Icon }) => (
               <li
-                key={service.href}
+                key={href}
                 className="
                   hover:bg-yellow-100
                   cursor-pointer
-                  px-6 py-2
-                  transition-colors duration-150
+                  px-6 py-3
+                  text-sm font-medium
+                  transition-colors duration-200
+                  border-b last:border-b-0 border-gray-200
                 "
               >
-                <Link href={service.href} className="block">
-                  {service.label}
+                <Link 
+                  href={href} 
+                  className="flex items-center gap-3 underline-animate"
+                >
+                  <Icon className="w-5 h-5 text-yellow-500" />
+                  {label}
                 </Link>
               </li>
             ))}
@@ -156,21 +183,21 @@ export default function Navbar() {
                 {servicesOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
               </button>
               {servicesOpen && (
-                <ul className="mt-2 flex flex-col gap-2 items-center">
-                  {services.map((service) => (
-                    <li key={service.href}>
-                      <Link
-                        href={service.href}
-                        className="block hover:text-yellow-300"
-                        onClick={() => setOpen(false)}
-                      >
-                        {service.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            {/* </div> */}
+              <ul className="mt-2 flex flex-col gap-2 items-center">
+                {services.map(({ href, label, Icon }) => (
+                  <li key={href} className="items-center">
+                    <Link
+                      href={href}
+                      className="flex items-center gap-3 px-6 py-3 hover:text-yellow-300 underline-animate"
+                      onClick={() => setOpen(false)}
+                    >
+                      <Icon className="w-5 h-5 text-yellow-500" />
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
 
             {navLinks.map((link) => (
               <Link
