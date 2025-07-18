@@ -81,8 +81,8 @@ export default function WorkPage() {
         {/* White container with main content */}
         <div className="mt-2 rounded-4xl bg-white p-8 shadow-lg max-w-8xl mx-auto">
             {/* Hero Intro */}
-            <section className="text-center max-w-4xl mx-auto space-y-6 p-8 rounded-2xl bg-gradient-to-r from-indigo-50 to-indigo-100 shadow-md animate-fadeIn">
-                <p className="text-indigo-900 text-xl sm:text-2xl font-semibold max-w-3xl mx-auto leading-relaxed tracking-wide">
+            <section className="text-center max-w-5xl mx-auto p-12 rounded-3xl bg-gradient-to-r from-indigo-100 to-indigo-200 shadow-lg shadow-indigo-300/40">
+                <p className="text-indigo-900 text-2xl sm:text-3xl font-serif leading-relaxed tracking-wide drop-shadow-sm">
                     {t("intro")}
                 </p>
             </section>
