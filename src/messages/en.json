@@ -1,5 +1,8 @@
 {
     "HomePage": {
+      "servicesMobile": "Mobile",
+      "servicesWeb": "Web",
+      "servicesCybersecurity": "Cybersecurity",
       "servicesLine": ["Mobile", "Web", "Cybersecurity"],
       "headline1": "Build Fast.",
       "headline2": "Secure Everything.",

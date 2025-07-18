@@ -1,5 +1,8 @@
 {
     "HomePage": {
+      "servicesMobile": "Móvil",
+      "servicesWeb": "Web",
+      "servicesCybersecurity": "Ciberseguridad",
       "servicesLine": ["Móvil", "Web", "Ciberseguridad"],
       "headline1": "Desarrolla Rápido.",
       "headline2": "Protege Todo.",

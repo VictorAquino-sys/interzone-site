@@ -6,20 +6,28 @@ import LocaleSwitcher from "./LocaleSwitcher";
 import { useTranslations, useLocale } from "next-intl";
 import Image from "next/image";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown, ChevronUp } from "lucide-react";
 
 export default function Navbar() {
-  const t = useTranslations("nav");
+  const tNav = useTranslations("nav");
+  const tHome = useTranslations("HomePage");
   const locale = useLocale();
   const [open, setOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
 
-  // Responsive navigation links
+  // Main nav links excluding Services (since it's special)
   const navLinks = [
-    { href: `/${locale}/services`, label: t("services") },
-    { href: `/${locale}/work`, label: t("work") },
-    { href: `/${locale}/about`, label: t("about") },
-    { href: `/${locale}/blog`, label: t("blog") },
-    { href: `/${locale}/contact`, label: t("contact") },
+    { href: `/${locale}/work`, label: tNav("work") },
+    { href: `/${locale}/about`, label: tNav("about") },
+    { href: `/${locale}/blog`, label: tNav("blog") },
+    { href: `/${locale}/contact`, label: tNav("contact") },
+  ];
+
+  // Services submenu items
+  const services = [
+    { href: `/${locale}/services/mobile`, label: tHome("servicesMobile") },
+    { href: `/${locale}/services/web`, label: tHome("servicesWeb") },
+    { href: `/${locale}/services/cybersecurity`, label: tHome("servicesCybersecurity") },
   ];
 
   return (
@@ -37,7 +45,6 @@ export default function Navbar() {
             style={{
               objectFit: "contain",
               marginTop: "-16px",
-              // maxWidth: "120px"
             }}
           />
         </Link>
@@ -52,8 +59,50 @@ export default function Navbar() {
         <Menu className="w-8 h-8" />
       </button>
 
+      {/* Desktop Navigation Links */}
+      <div className="hidden sm:flex items-center gap-24 px-8 relative">
+      {/* Services dropdown */}
+      <div className="relative group">
+        <button
+          className="text-white hover:text-yellow-300 text-base font-semibold flex items-center gap-1"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          {tNav("services")} <ChevronDown size={16} />
+        </button>
+
+        {/* Dropdown menu - visible on hover of button or menu */}
+        <div
+          className="
+            absolute left-0 mt-2 w-auto min-w-[140px] max-w-[220px]
+            bg-white rounded-md shadow-lg
+            opacity-0 invisible
+            group-hover:opacity-100 group-hover:visible
+            transition-opacity duration-200
+            z-50
+          "
+        >
+          <ul className="text-black py-1">
+            {services.map((service) => (
+              <li
+                key={service.href}
+                className="
+                  hover:bg-yellow-100
+                  cursor-pointer
+                  px-6 py-2
+                  transition-colors duration-150
+                "
+              >
+                <Link href={service.href} className="block">
+                  {service.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
       {/* Navigation Links (Desktop) */}
-      <div className="hidden sm:flex items-center gap-24 px-8">
         <div className="flex gap-24 text-base font-semibold">
           {navLinks.map((link) => (
             <Link
@@ -65,7 +114,8 @@ export default function Navbar() {
             </Link>
           ))}
         </div>
-          <LocaleSwitcher />
+
+        <LocaleSwitcher />
       </div>
 
       {/* Mobile Drawer */}
@@ -94,7 +144,34 @@ export default function Navbar() {
               <X className="w-8 h-8" />
             </button>
           </div>
-          <div className="flex flex-col gap-6 items-center mt-8">
+
+          <nav className="flex flex-col gap-6 items-center mt-8 text-white text-lg font-semibold px-4">
+            {/* Services menu with toggle */}
+            {/* <div className="w-full"> */}
+              <button
+                onClick={() => setServicesOpen(!servicesOpen)}
+                className="flex justify-center items-center gap-2 hover:text-yellow-300 px-4"
+              >
+                {tNav("services")}
+                {servicesOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+              </button>
+              {servicesOpen && (
+                <ul className="mt-2 flex flex-col gap-2 items-center">
+                  {services.map((service) => (
+                    <li key={service.href}>
+                      <Link
+                        href={service.href}
+                        className="block hover:text-yellow-300"
+                        onClick={() => setOpen(false)}
+                      >
+                        {service.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            {/* </div> */}
+
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -105,8 +182,10 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
+
             <LocaleSwitcher />
-          </div>
+          </nav>
+          {/* </div> */}
         </div>
       )}
     </nav>
