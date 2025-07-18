@@ -34,6 +34,27 @@
         "technologies": "Tecnologías",
         "contact": "Contacto",
         "closing": "Creemos que la tecnología puede unir a las personas. ¡Construyamos juntos el futuro de la comunidad!"
+    },
+    "WorkPage": {
+      "title": "Nuestro Trabajo",
+      "intro": "Descubre cómo InterZone conecta comunidades a través de una aplicación móvil intuitiva diseñada para acercar eventos locales, negocios y personas.",
+      "captions": {
+        "login": "Inicio de sesión seguro e intuitivo para acceso rápido",
+        "home": "Tu feed personalizado con publicaciones y eventos en toda la ciudad",
+        "profile": "Administra tu perfil y visualiza tu actividad",
+        "post": "Crea y comparte publicaciones con la comunidad local",
+        "report": "Reporta problemas o eventos para la seguridad comunitaria",
+        "music": "Descubre música local y próximos conciertos"
+      },
+      "project": {
+        "title": "Aplicación Móvil InterZone",
+        "description": "Una plataforma social enfocada en la ciudad para compartir publicaciones, eventos y experiencias con tu comunidad local — construida con React Native, Google Cloud, Typescript, and Firebase.",
+        "appStoreUrl": "https://apps.apple.com/us/app/interzone/id6742695484?platform=iphone",
+        "playStoreUrl": "https://play.google.com/store/apps/details?id=com.zhd.interzone"
+      },
+      "testimonials": {
+        "title": "Lo que dicen nuestros usuarios"
+      }
     }
   }
   

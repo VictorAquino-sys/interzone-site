@@ -10,7 +10,7 @@
       "servicesDataAI": "Data Analytics & AI",
       "servicesSupport": "Support & Maintenance",
       "servicesTraining": "Training & Workshops",
-      
+
       "servicesLine": ["Mobile", "Web", "Cybersecurity"],
       "headline1": "Build Fast.",
       "headline2": "Secure Everything.",
@@ -34,6 +34,27 @@
         "technologies": "Technologies",
         "contact": "Contact",
         "closing": "We believe technology can bring people together. Let’s build the future of community—together!"
+    },
+    "WorkPage": {
+      "title": "Our Work",
+      "intro": "Discover how InterZone is connecting communities through an intuitive mobile app designed to bring local events, businesses, and people together.",
+      "captions": {
+        "login": "Secure and intuitive login for quick access",
+        "home": "Your personalized feed with citywide posts & events",
+        "profile": "Manage your profile and view your activity",
+        "post": "Create and share posts with the local community",
+        "report": "Report issues or events for community safety",
+        "music": "Discover local music and upcoming concerts"
+      },
+      "project": {
+        "title": "InterZone Mobile App",
+        "description": "A city-focused social platform to share posts, events, and experiences with your local community — built with React Native and Firebase.",
+        "appStoreUrl": "https://apps.apple.com/us/app/interzone/id6742695484", 
+        "playStoreUrl": "https://play.google.com/store/apps/details?id=com.zhd.interzone"
+      },
+      "testimonials": {
+        "title": "What Our Users Say"
+      }
     }
   }
   
